@@ -20,9 +20,9 @@ app.use("/api/user", require("./Route/user"));
 app.use("/api/query", require("./Route/search"));
 app.use("/api/team", require("./Route/team"));
 
-if(process.env.NODE_ENV==='production'){
-  app.use(express.static('client/build'))
-}
+app.get("/", (req, res) => {
+  res.json({ message: "Hello I am Backend" });
+});
 
 
 app.listen(port, () => {
